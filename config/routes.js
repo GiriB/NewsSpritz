@@ -32,15 +32,15 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'GET /': {
-    view: 'homepage'
-  },
+  'GET /': 'TopicController.getNews' ,
 
   'GET /:topic': {
     controller : 'TopicController',
     action : 'getNews',
     skipAssets : true
   },
+
+
 
   /***************************************************************************
   *                                                                          *

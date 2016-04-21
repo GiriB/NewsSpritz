@@ -1,7 +1,105 @@
-<h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>NewsSprtiz</title>
+  
+  
 
-This is where we make changes.
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/india">Newspritz</a>
+    </div>
+    <div  id="myNavbar">
+      <ul class="nav navbar-nav">  
+        <li class="inactive"><a href="/india">India</a></li>
+        <li class="inactive"><a href="/business">Business</a></li>
+        <li class="inactive"><a href="/sports">Sports</a></li>
+        <li class="inactive"><a href="/world">World</a></li>
+        <li class="inactive"><a href="/politics">Politics</a></li>
+        <li class="inactive"><a href="/technology">Technology</a></li>
+        <li class="inactive"><a href="/startup">Startup</a></li>
+        <li class="inactive"><a href="/entertainment">Entertainment</a></li>
+        <li class="inactive"><a href="/miscellaneous">Miscellaneous</a></li>
+        <li class="inactive"><a href="/hatke">Hatke</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<!--*******************************************************************************************************-->
+
+<div id="spritz-div" style="display:none">
+<button id="spritz-close" class="btn btn-default btn-sm ">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 
+                            </button> 
+ 
+ <p align="center" id="spritz-text">This is spritz</p>
+ <div align = "center" id="spritz-button">
+     <button id="spritz-play" class="btn btn-default btn-lg bigbutton">
+                                <span class="glyphicon glyphicon-play" ></span> 
+                                </button> 
+
+     <button id="spritz-pause" class="btn btn-default btn-lg bigbutton">
+                                <span class="glyphicon glyphicon-pause" ></span> 
+                                </button> 
+
+     <button id="spritz-reset" class="btn btn-default btn-lg bigbutton">
+                                <span class="glyphicon glyphicon-fast-backward" ></span> 
+                                </button> 
+ </div> 
+ <div align="center" id="wpm-div"><span id="wpm"> 300 wpm </span></div>
+
+ <div align="center">
+    <input id="slider"  type="range" min="100" max="600" step="25" value="200"/>
+ </div>
+</div>
+
+    <section id="cd-timeline" class="cd-container">
+        
+        <% if (! (typeof news =='undefined')) { %>
+        
+            <% for(var i=0; i<news.length; i++) {%>
+                    
+                     <div id="news-card-<%=i%>" class="cd-timeline-block">
+                        <div class="cd-timeline-img cd-picture">
+                            <img src=" <%= news[i].img %> " alt="Picture" class="img-circle" >
+                        </div> 
+                        <!-- image -->
+                        <div class="cd-timeline-content">
+                            <h2 class="content-title" ><%= news[i].title %></h2>
+                            <!-- titile -->
+                            <p class="content-body" ><%= news[i].body %></p>
+                            <!-- body -->
+                                                 
+                            <button id="spritz-button-<%=i%>" class="btn btn-default btn-lg mybutton"  >
+                            <span class="glyphicon glyphicon-flash" aria-hidden="true"></span> 
+                            </button>
+                            
+
+                            <a href="<%= news[i].link %>" class="cd-read-more">Read more</a>
+                            <!-- read more -->
+                            <span class="cd-date"><%= news[i].time.toDateString() %> </span>
+                            <!-- time -->
+                        </div> 
+                        
+                    </div> 
+            <% } %>
+               
+        <% } else { %>
+         <h1> NOO </h1>
+         <% } %>
+
+       
+    </section> 
+
+<div class="overlay"></div>
+</body>
+
+<script src="js/jquery.js"></script>
 
 
-css to be added in assets/styles
-</h1>
+</html>
