@@ -58,7 +58,7 @@ Main components
   top: 0;
   left: 50%;
   margin-left: -2px;
-  height: 96%;
+  height: 97%;
   width: 4px;
   background: #5a5c51;
 }
@@ -230,7 +230,7 @@ Main components
   #spritz-text {
     /*size : 300%;*/
     font-size: 80px;
-    color: red;
+    color: white;
   }
 
   #spritz-button {

@@ -80,6 +80,7 @@ function spritzer(){
 	// getting text from the body
 	var text = body.innerHTML;
 	$words = text.split(' ');
+	$current_word = 0;
 	$('#spritz-text')[0].innerHTML = $words[$current_word];
 
 	console.log(text + " loaded " + $words.length);
@@ -131,6 +132,7 @@ function showWord(i){
 	if(i == $words.length){
 		clearInterval($displayInterval);
 		$current_word = 0;
+		console.log("end"); q
 		// $('#spritz-text')[0].innerHTML = $words[0];
 	}else {
 		$('#spritz-text')[0].innerHTML = $words[i];
@@ -155,5 +157,6 @@ function reset(){
 	$current_word=0;
 	console.log("Resetting " + $words[$current_word]);
 	$('#spritz-text')[0].innerHTML = $words[$current_word];
+	console.log($displayInterval);
 
 }
