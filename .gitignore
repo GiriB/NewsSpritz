@@ -41,7 +41,6 @@
 
 config/local.js
 node_modules
-tasks
 bower_components
 
 
