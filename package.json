@@ -34,5 +34,8 @@
     "url": "git://github.com/giri/NewsSpritz.git"
   },
   "author": "giri",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "nodemon": "^1.10.2"
+  }
 }

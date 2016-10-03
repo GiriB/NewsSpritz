@@ -53,24 +53,41 @@ module.exports = {
 		  else {
 			  console.log("loading data");
 			  var $ = cheerio.load(body);
-			  // var news = [];
+			  
 
 			  var news_title = $('.news-card > .news-card-title > a > span');
-	  	      var news_image = $('.news-card > .news-card-image > img[itemprop="image"]');
+	  	     
+	  	      var news_image = $('.news-card > .news-card-image');
 			  var news_body = $('.news-card > .news-card-content > div[itemprop="articleBody"]');
 			  var news_time = $('.news-card > .news-card-title > .news-card-author-time > .time' );
-			  var news_readmore = $('.news-card > .news-card-footer > .read-more');
-
+			  
+			  // var news_readmore = $('.news-card > .news-card-footer > .read-more');
+			  var news_readmore = $('.news-card');
+			  
+			  
 			  console.log("loaded data");
-			  // console.log(news_readmore.length);
-			  // console.log(news_readmore[0].children[1].attribs.href);
-			  		  
+			  
 			  for (key=0; key<news_title.length;key++){
 			  	news[key] = {}
 			  	news[key].title = news_title[key].children[0].data ;
-			  	news[key].img = news_image[key].attribs.src;
+
+			  	// HACKY - get the image url
+			  	// console.log("news image -" + news_image[key].attribs.style);
+			  	news[key].img = news_image[key].attribs.style.split("\'")[1];
+			  	
 			  	news[key].body = news_body[key].children[0].data;
 			  	news[key].time = new Date(news_time[key].attribs.content);
+
+			  	// sometimes the read-more link is not attached to a news-card
+			  	for (i in news_readmore[key].childNodes){
+			  		if ( news_readmore[key].childNodes[i].nodeType == 1 ? (news_readmore[key].childNodes[i].attribs['class'] == "news-card-footer news-right-box") : false ){
+			  			// check if the news-card has a read-more link attached
+				  		news[key].link = news_readmore[key].childNodes[i].attribs.class;
+			  		}else{
+			  			news[key].link = 'https://www.inshorts.com/read';
+			  		};
+			  	}
+			  	
 			  	news[key].link = news_readmore[key].children[1].attribs.href;
 			  }
 			
