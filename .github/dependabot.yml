@@ -1,0 +1,24 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "23:30"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: sails
+    versions:
+    - 1.4.0
+  - dependency-name: ejs
+    versions:
+    - 3.1.5
+  - dependency-name: grunt-contrib-uglify
+    versions:
+    - 5.0.0
+  - dependency-name: grunt-contrib-less
+    versions:
+    - 2.0.0
+  - dependency-name: grunt-contrib-cssmin
+    versions:
+    - 3.0.0
